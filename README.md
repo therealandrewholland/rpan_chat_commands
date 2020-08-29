@@ -11,8 +11,8 @@ I've done my best to design this project so even not-so-tech-savvy people can us
 
 If you have the time, I would appreciate if you could check out my [Youtube Channel](https://www.youtube.com/channel/UCa5z0aFw8hzpEl7qhMr0w7g/) where I build robots. Other than that, please enjoy the script and let me know if you have any trouble.
 
-## Setting Up Guide
-### Installing Python
+## Setup Guide
+### Install Python
 Because OBS Studio does not support newer versions of Python, you'll have to install Python 3.6.1.
 
 You can install it using this link -> https://www.python.org/downloads/release/python-361/
@@ -48,13 +48,13 @@ Run the exe file and follow the steps below:
 </p></li>
 </ol>
 
-### Downloading the code
+### Download the code
 Download the code from Github and unzip the folder to wherever you to plan to store it
 
-### Running "run_first.py"
+### Run "run_first.py"
 Double click "run_first.py" to run the file. Allow it to make changes to your device. If all goes right, it will automatically install the needed Python libraries for the main Python script.
 
-### Setting up RPAN Studio
+### Setup RPAN Studio
 Open RPAN Studio and follow the instructions below:
 1. Click on Tools -> Scripts from the main options
 2. Click "Python Settings" and paste `C:/Program Files/Python36` into the python install path
