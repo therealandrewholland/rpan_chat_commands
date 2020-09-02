@@ -1,16 +1,14 @@
 import obspython as obs
+import ctypes, sys, os, re, requests, time, asyncio, websockets, json, praw
 from gtts import gTTS
-import os
 from playsound import playsound
-import re
-import requests
-import time
 from threading import Thread
-import asyncio
-import websockets
-import json
-import praw
    
+#gives the ability to make directory / remove files
+if not ctypes.windll.shell32.IsUserAnAdmin():
+    ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
+    sys.exit()
+
 #directory initilization
 if not os.path.isdir("stream_data"):
     os.mkdir("stream_data")
