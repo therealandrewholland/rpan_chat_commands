@@ -6,8 +6,7 @@ def is_admin():
     except:
         return False
 
-if is_admin():
-    os.system('cmd /c "py -3.6 -m pip install -r %s\\requirements.txt"' % os.getcwd())
-else:
+if not is_admin():
     ctypes.windll.shell32.ShellExecuteW(None, "runas", sys.executable, " ".join(sys.argv), None, 1)
-
+    
+os.system('cmd /c "py -3.6 -m pip install -r \"%s\\requirements.txt\""' % os.getcwd())
