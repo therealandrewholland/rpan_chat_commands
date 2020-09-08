@@ -85,20 +85,19 @@ class websocket_stuff():
 
     def add_to_dict(author, comment, commentid, award=False):  
         if not award:                   
-            if websocket_stuff.ENABLE_HELP_COMMAND and comment.find("!help") == 0 and len(comment) == 5:
+            if websocket_stuff.ENABLE_HELP_COMMAND and websocket_stuff.CUSTOM_TEXT and comment.find("!help") == 0 and len(comment) == 5:
+                reddit = praw.Reddit(client_id="H6wDyGXL9wiBXw",
+                                     client_secret="zhSZQfSCJS8Doc2XHlOOnIY_H10",
+                                     user_agent="rpan chat commands by tech it apart",
+                                     username=websocket_stuff.REDDIT_USERNAME,
+                                     password=websocket_stuff.REDDIT_PASSWORD)
                 try:
-                    reddit = praw.Reddit(client_id="H6wDyGXL9wiBXw",
-                                         client_secret="zhSZQfSCJS8Doc2XHlOOnIY_H10",
-                                         user_agent="this is a test script by tech it apart",
-                                         username=websocket_stuff.REDDIT_USERNAME,
-                                         password=websocket_stuff.REDDIT_PASSWORD)
-                    submission = reddit.submission(id=websocket_stuff.STREAM_ID)
-                    if websocket_stuff.CUSTOM_TEXT:
-                        submission.reply(websocket_stuff.CUSTOM_TEXT)
-                    else:
-                        print("no response has been set for !help command")
+                    reddit.user.me()
                 except:
                     print("reddit login failed, please make sure your login information is correct")
+                else:
+                    submission = reddit.submission(id=websocket_stuff.STREAM_ID)
+                    submission.reply(websocket_stuff.CUSTOM_TEXT)
                 
             if websocket_stuff.ENABLE_TTS_COMMAND:
                 if comment.find("!tts ") == 0 and len(comment[5:len(comment)]) <= 100:
