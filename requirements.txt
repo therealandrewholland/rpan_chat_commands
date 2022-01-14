@@ -1,5 +1,5 @@
-gTTS==2.1.1
+gTTS>=2.1.1
 playsound==1.2.2
-requests==2.24.0
-websockets==8.0.2
-praw==7.1.0
+requests>=2.24.0
+websockets>=8.0.2
+praw>=7.1.0
