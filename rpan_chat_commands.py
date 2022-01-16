@@ -93,7 +93,7 @@ class websocket_stuff():
         if not award:                   
             if websocket_stuff.ENABLE_CUSTOM_COMMAND and websocket_stuff.CUSTOM_TEXT and comment == websocket_stuff.CUSTOM_COMMAND:
                 reddit = praw.Reddit(client_id=websocket_stuff.REDDIT_CLIENT_ID, 
-                                     client_secret_id=websocket_stuff.REDDIT_SECRET_ID, 
+                                     client_secret=websocket_stuff.REDDIT_SECRET_ID, 
                                      user_agent="rpan chat commands by tech it apart",
                                      username=websocket_stuff.REDDIT_USERNAME,
                                      password=websocket_stuff.REDDIT_PASSWORD,
