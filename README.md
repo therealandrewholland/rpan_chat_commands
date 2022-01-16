@@ -1,15 +1,15 @@
-# RPAN Chat Commands
+# RPAN Chat Commands v1.5
 ## What is this?
 This is a side project I've been working on so RPAN Studio streamers can interact with their viewers in a more immersive way.
 
 Using the script, you can:
-- text-to-speech comments (either choose to tts all comments or only comments which contain `!tts` before them)
+- text-to-speech comments (you can choose to tts all comments, only comments which contain `!tts` before them, or disable tts altogether)
 - display tts-ed comments on one of your current text sources in RPAN Studio
-- automatically respond with custom messages whenever someone comments `!help`
+- automatically respond with custom messages whenever someone comments a custom command you set
 
-I've done my best to design this project so even not-so-tech-savvy people can use it too. There is a very detailed guide on how to set everything up down below. <sub> I apologize in advance to any developers who might be disgusted by my code; I am not a developer, just a professional Googler. </sub> 
+I've done my best to design this project so even not-so-tech-savvy people can use it too. There is a detailed guide on how to set everything up down below. <sub> I apologize in advance to any developers who might be disgusted by my code; I am not a developer, just a professional Googler. </sub> 
 
-If you have the time, I would appreciate if you could check out my [Youtube Channel](https://www.youtube.com/channel/UCa5z0aFw8hzpEl7qhMr0w7g/) where I build robots. Other than that, please enjoy the script and let me know if you have any trouble.
+If you have the time, I would appreciate if you could check out my [Youtube Channel](https://www.youtube.com/channel/UCa5z0aFw8hzpEl7qhMr0w7g/) where I build shitty inventions. Other than that, please enjoy the script and let me know if you have any problems.
 
 ## Setup Guide
 ### Install Python
@@ -59,7 +59,7 @@ Open RPAN Studio and follow the instructions below:
 1. Click on Tools -> Scripts from the main options
 2. Click "Python Settings" and paste `C:/Program Files/Python36` into the python install path
 3. Click "Scripts", click the "+" sign to add a new script, and then add "rpan_chat_commands.py" from wherever you stored it
-4. You will get an error that says something like `TypeError: change_button() takes 2 positional arguments but 3 were given`. This only shows when you first add the script, so just ignore it and restart RPAN Studio.
+4. RPAN Studio will restart and request admin privileges, this is fine. After it does this, you will need to add the script again. It will only do this the first time you add the script.
 5. The script is now ready to use
 
 ## Using RPAN Chat Commands
@@ -93,21 +93,28 @@ When you press the "stop" button, there is a 5-10 second delay before the script
 
 <p align="middle">  <img src="/images/how_to_rpan_chat_commands/07.PNG" width="60%" /></p>
 
-### Using `!help`
-After checking off `enable !help` in `options`, new options will appear under `main menu`.
+### Using your custom command
+After checking off `enable custom commands` in `options`, new options will appear under `main menu`.
 
-There will be an area to enter the login information of a Reddit account.
+There will be an area to enter the login information of a Reddit account, as well as an area to enter a Client ID / Secret ID.
 
-The Reddit account you enter will automatically respond with the text entered in `!help response` whenever someone comments the `!help` command. This can be useful to link socials, give info about the stream, or any other information you might want to give your viewers.
+To retrieve your Client ID / Secret ID, please visit reddit.com/prefs/apps and login into your reddit account. 
 
-There is currently no limit to the number of times this command can be used by an individual, so this command will likely be prone to spam. To prevent this, I'm going to add an alternate feature where the `!help response` will automatically be commented every X comments in the stream. This will make it so your viewers can still see that information as frequently as you want them to, but without them being able to spam the chat.
+1. You will need to create a new app. You only have to change three things when creating your app. Set the name of the app to whatever you want, set the app type to `script`, and then paste `http://localhost:8080` under `redirect uri`.
+2. After creating your app, it will display two different IDs in the app's settings. You need to copy and paste both of them into their respective areas in RPAN Studio. The first ID is your client ID, the second being your secret ID.
+
+The Reddit account you enter will automatically respond with the text entered in `custom command response` whenever someone comments the your custom command. This can be useful to link socials, give info about the stream, or any other information you might want to give your viewers. 
+
+Your custom command can be set to anything with no restrictions (i.e. `!twitch`, `hairy dog`, `!!! test`, `?help?`). The script just looks for comments that are identical to your current custom command. This feature is new and still "beta", so please let me know if you have any issues.
+
+There is currently no limit to the number of times this command can be used by an individual (other than the limits r/pan itself has in place to prevent spam), so this command will likely be prone to spam. To prevent this, I'm eventually going to add an optional feature where the `custom response` can automatically be commented every X comments in the stream. This will make it so your viewers can still see that information as frequently as you want them to, but without them being able to spam the chat.
 
 ### Enabling the comment display
-After checking off `enable comment display` under `options`, a drop down list containing all the current text sources will be added under `main menu`.
+After enabling TTS in `options` and checking off `enable comment display` under `main menu`, a drop down list containing all the current text sources will be added under `main menu`.
 
 The text source you set as the comment display will constantly be updated with the most recent text-to-speeched comment. It's shown in the format: `[reddit_username]: [comment]`
 
 If you aren't currently processing comments but still have `enable comment display` checked off, the text source will be updated to say `your tts messages will appear here` until you start processing comments.
 
-### Enabling `!tts`
-Checking off `enable !tts command` under `options` causes the script to only text-to-speech comments which have the command `!tts` before them (as opposed to the every comment default)
+### Enabling `!tts` command
+Enabling TTS in `options` and checking off `enable !tts command` under `main menu` causes the script to only text-to-speech comments which have the command `!tts` before them (as opposed to every comment)
