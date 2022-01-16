@@ -163,7 +163,7 @@ def script_load(settings):
     obs.obs_data_set_string(settings, "current_menu", "main menu")
     obs.obs_data_set_string(settings, "url_text", None)
 
-    reset_options = ["enable_custom_command", "enable_tts_command", "enable_comment_display"]
+    reset_options = ["enable_custom_command", "enable_tts", "enable_tts_command", "enable_comment_display"]
     for option in reset_options:
         obs.obs_data_set_bool(settings, option, False)
 
@@ -184,7 +184,6 @@ def script_update(settings):
     
     websocket_stuff.REDDIT_USERNAME = obs.obs_data_get_string(settings, "reddit_username")
     websocket_stuff.REDDIT_PASSWORD = obs.obs_data_get_string(settings, "reddit_password")
-    
     websocket_stuff.REDDIT_CLIENT_ID = obs.obs_data_get_string(settings, "reddit_client_id")
     websocket_stuff.REDDIT_SECRET_ID = obs.obs_data_get_string(settings, "reddit_secret_id")
 
@@ -273,15 +272,14 @@ def script_properties():
     #create main menu properties
     obs.obs_properties_add_text(props, "reddit_username", "Reddit Username", obs.OBS_TEXT_DEFAULT)
     obs.obs_properties_add_text(props, "reddit_password", "Reddit Password", obs.OBS_TEXT_PASSWORD)
-
     obs.obs_properties_add_text(props, "reddit_client_id", "Reddit Client ID", obs.OBS_TEXT_DEFAULT)
     obs.obs_properties_add_text(props, "reddit_secret_id", "Reddit Secret ID", obs.OBS_TEXT_DEFAULT)
     
     obs.obs_properties_add_text(props, "custom_text", "your custom command response", obs.OBS_TEXT_DEFAULT)
-    
     obs.obs_properties_add_text(props, "custom_command", "your custom command", obs.OBS_TEXT_DEFAULT)
     
     obs.obs_properties_add_text(props, "url_text", "Paste stream URL here", obs.OBS_TEXT_DEFAULT)
+    
     comment_display = obs.obs_properties_add_list(props, "comment_display", "text source to display comments", obs.OBS_COMBO_TYPE_EDITABLE, obs.OBS_COMBO_FORMAT_STRING)
     sources = obs.obs_enum_sources()
     if sources is not None:
@@ -291,15 +289,17 @@ def script_properties():
                 name = obs.obs_source_get_name(source)
                 obs.obs_property_list_add_string(comment_display, name, name)
         obs.source_list_release(sources)
+        
     button = obs.obs_properties_add_button(props, "comment_button", "start", lambda *props: None)
-
     obs.obs_property_set_modified_callback(button, change_button)
+
+    obs.obs_properties_add_bool(props, "enable_tts_command", "enable !tts command")
+    enable_comment_display = obs.obs_properties_add_bool(props, "enable_comment_display", "enable comment display")
+    obs.obs_property_set_modified_callback(enable_comment_display, add_comment_display)
 
     #create option menu properties
     obs.obs_properties_add_bool(props, "enable_custom_command", "enable your custom command")
     obs.obs_properties_add_bool(props, "enable_tts", "enable tts")
-    obs.obs_properties_add_bool(props, "enable_tts_command", "enable !tts command")
-    enable_comment_display = obs.obs_properties_add_bool(props, "enable_comment_display", "enable comment display")
 
     #set descriptions
     obs.obs_property_set_long_description(obs.obs_properties_get(props, "enable_custom_command"), "enable / disable your custom command")
@@ -310,8 +310,6 @@ def script_properties():
     obs.obs_property_set_long_description(obs.obs_properties_get(props, "custom_text"), "what you will comment in response when someone uses your custom command")
     obs.obs_property_set_long_description(obs.obs_properties_get(props, "enable_tts_command"), "only tts comments with !tts before them (disabling will tts all comments)")
     obs.obs_property_set_long_description(obs.obs_properties_get(props, "enable_tts"), "enable / disable tts")
-
-    obs.obs_property_set_modified_callback(enable_comment_display, add_comment_display)
     
     #hide most options for initial UI loading
     hide_list = ["reddit_username", "reddit_password", "reddit_client_id", "reddit_secret_id", "custom_text", "custom_command", "comment_display", "enable_custom_command", "enable_tts", "enable_tts_command", "enable_comment_display"]
