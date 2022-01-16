@@ -112,6 +112,8 @@ There is currently no limit to the number of times this command can be used by a
 ### Enabling the comment display
 After checking off `enable tts` in `options` and checking off `enable comment display` in `main menu`, a drop down list containing all the current text sources will be added under `main menu`.
 
+<p align="middle">  <img src="/images/how_to_rpan_chat_commands/041.PNG" width="48%" /></p>
+
 The text source you set as the comment display will constantly be updated with the most recent text-to-speeched comment. It's shown in the format: `[reddit_username]: [comment]`
 
 If you aren't currently processing comments but still have `enable comment display` checked off, the text source will be updated to say `your tts messages will appear here` until you start processing comments.
