@@ -119,4 +119,4 @@ The text source you set as the comment display will constantly be updated with t
 If you aren't currently processing comments but still have `enable comment display` checked off, the text source will be updated to say `your tts messages will appear here` until you start processing comments.
 
 ### Enabling `!tts` command
-Enabling TTS in `options` and checking off `enable !tts command` under `main menu` causes the script to only text-to-speech comments which have the command `!tts` before them (as opposed to every comment)
+After checking off `enable tts` in `options`` and checking off `enable !tts command` in `main menu`, the script will only text-to-speech comments that have the command `!tts` before them (as opposed to every comment).
