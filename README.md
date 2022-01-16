@@ -98,7 +98,7 @@ After checking off `enable your custom command` in `options`, new options will a
 
 There will be an area to enter the login information of a Reddit account, as well as an area to enter a Client ID / Secret ID.
 
-To retrieve your Client ID / Secret ID, please visit https://www.reddit.com/prefs/app and login to your reddit account. 
+To retrieve your Client ID / Secret ID, please visit https://www.reddit.com/prefs/apps and login to your reddit account. 
 
 1. You will need to create a new app. You only have to change three things when creating your app. Set the name of the app to whatever you want, set the app type to `script`, and then paste `http://localhost:8080` under `redirect uri`. <p align="middle">  <img src="/images/how_to_rpan_chat_commands/08.PNG" width="48%" /></p>
 2. After creating your app, it will display two different IDs in the app's settings. You need to copy and paste both of them into their respective areas in RPAN Studio. The first ID is your client ID, the second being your secret ID. <p align="middle">  <img src="/images/how_to_rpan_chat_commands/09.PNG" width="48%" /></p>
