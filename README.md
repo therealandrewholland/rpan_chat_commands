@@ -71,7 +71,7 @@ There are two menus, `main menu` and `options`.
 
 Checking certain settings under `options` will change the layout of `main menu`
 
-| checking `enable !help` | checking `enable comment display` |
+| checking `enable custom command` | checking `enable tts` |
 |---|---|
 |<p align="middle">  <img src="/images/how_to_rpan_chat_commands/03.PNG" width="99%" /></p>|<p align="middle">  <img src="/images/how_to_rpan_chat_commands/04.PNG" width="99%" /></p>|
 
