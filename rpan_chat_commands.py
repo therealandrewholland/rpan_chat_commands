@@ -23,23 +23,17 @@ class websocket_stuff():
     STREAM_URL = None
     WEBSOCKET_URI = None
     LIVESTREAM_DICT = None
-
     CUSTOM_COMMAND = None
-    
     CUSTOM_TEXT = None
     REDDIT_USERNAME = None
     REDDIT_PASSWORD = None
-
     REDDIT_CLIENT_ID = None
     REDDIT_SECRET_ID = None
-
     ENABLE_TTS = None
     ENABLE_TTS_COMMAND = None
     ENABLE_CUSTOM_COMMAND = None
     ENABLE_COMMENT_DISPLAY = None
     COMMENT_DISPLAY_NAME = None
-
-    SETUP_DONE = False
 
     async def read_comments():
         websocket_stuff.url_to_websocket(websocket_stuff.STREAM_URL)
@@ -242,7 +236,7 @@ def change_button(props, prop, *args):
     prop = obs.obs_properties_get(props, "comment_button")
     desc = obs.obs_property_description(prop)
 
-    if websocket_stuff.SETUP_DONE:
+    if websocket_stuff.STREAM_URL:
         if desc == "start":
             if websocket_stuff.STREAM_URL[0:30] == "https://www.reddit.com/rpan/r/":
                 if obs_threading.task == None:
@@ -257,8 +251,6 @@ def change_button(props, prop, *args):
             print("cancelling comment processing...")
             obs.obs_property_set_description(prop, "start")
 
-    
-    websocket_stuff.SETUP_DONE = True
     return True
 
 def add_comment_display(props, prop, settings):
