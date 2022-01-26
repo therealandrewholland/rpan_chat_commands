@@ -1,7 +1,7 @@
 # r/pan Chat Commands v2.0
 <b>DISCLAIMER:</b> I am a 20 yo with no education / professional experience in programming so there's bound to be bugs. Just open an issue here, explain the problem you're having with as much information you can give me, and I'll try to get you a solution asap
 
-If you have time, please check out my [Youtube Channel](https://www.youtube.com/channel/techitapart/) where I build stupid inventions
+If you have time, please check out my [Youtube Channel](https://www.youtube.com/techitapart/) where I build stupid inventions
 
 ## What is this?
 This is an RPAN Studio python script that adds a ton of features r/pan streamers can use to interact with their chat
@@ -159,13 +159,13 @@ Checking off `enable !points command` makes it so your reddit account comments t
 
 <a name="db_sorter"></a>
 ### Using the database sorter
-After having points enabled for a stream, you can sort throught the information collected with the "rpan_chat_commands_db_sorter.py" script. Add it to RPAN Studio the same way you added the main script.
+After having points enabled for a stream, you can sort throught the information collected with the "rcc_db_sorter.py" script. Add it to RPAN Studio the same way you added the main script.
 
 You can sort through 3 different categories: most frequent commenters (in total number of comments across all streams), top award donaters (in reddit coin value for awards given across all streams), or by whoever has the most points (in total points across all streams). 
 
 <p align="middle">  <img src="/images/how_to_rcc_db_sorter/01.PNG" width="48%" /></p>
 
-After selecting what you want to sort by and clicking "start", the results show up in the `script log`. It will show the top 5 redditors for the category you sorted by, starting with the largest value. There is a key to help you understand the information.
+After selecting what you want to sort by and clicking "start", the results show up in the `script log`. It will show the top 5 redditors for the category you sorted by, starting with the largest value. There will be a key to help you understand the information shown.
 
 <p align="middle">  <img src="/images/how_to_rcc_db_sorter/02.PNG" width="48%" /></p>
 
@@ -179,7 +179,7 @@ While the script is active, mods are able to "ban" people using `!ban [reddit us
 ### Enabling the `!tts` command
 After checking off `enable tts` and `enable !tts command` in `options`, the script will only text-to-speech comments that have the `!tts` command before them (as opposed to every comment).
 
-Enabling `enable tts`, `enable !tts command`, and `enable points`, gives you the option to enable `enable tts command cost`. This will make the `!tts` command cost 20 points to use. This means viewers will have to interact with your stream before they are able to text-to-speech any messages. This system is designed to prevent spam. This is currently the only way for viewers to spend points! If you have ideas for other ways to redeem points, please let me know
+Enabling `enable tts`, `enable !tts command`, and `enable points`, causes the option `enable tts command cost` to appear. This will make the `!tts` command cost 20 points to use. This means viewers will have to interact with your stream before they are able to text-to-speech any messages. This system is designed to prevent spam. This is currently the only way for viewers to spend points! If you have ideas for other ways to redeem points, please let me know
 
 <a name="comment_display"></a>
 ### Enabling the comment display
