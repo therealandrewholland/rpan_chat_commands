@@ -167,7 +167,7 @@ You can sort through 3 different categories: most frequent commenters (in total 
 
 After selecting what you want to sort by and clicking "start", the results show up in the `script log`. It will show the top 5 redditors for the category you sorted by, starting with the largest value. There will be a key to help you understand the information shown.
 
-<p align="middle">  <img src="/images/how_to_rcc_db_sorter/02.PNG" width="48%" /></p>
+<p align="middle">  <img src="/images/how_to_rcc_db_sorter/02.PNG" width="60%" /></p>
 
 <a name="mods"></a>
 ### Using the mods system (requires secret / client IDs)
