@@ -1,7 +1,5 @@
 # r/pan Chat Commands v2.0
-<b>DISCLAIMER:</b> I am a 20 yo with no education / professional experience in programming so there's bound to be bugs. Just open an issue here, explain the problem you're having with as much information you can give me, and I'll try to get you a solution asap
-
-If you have time, please check out my [Youtube Channel](https://www.youtube.com/techitapart/) where I build stupid inventions
+r/pan (Reddit livestreaming) has been [shutdown](https://www.reddit.com/r/pan/comments/yl5zzd/update_on_the_future_of_live_video_broadcasting/). This project no longer works and will not be recieving any more updates.
 
 ## What is this?
 This is an RPAN Studio python script that adds a ton of features r/pan streamers can use to interact with their chat
