@@ -1,5 +1,5 @@
 # r/pan Chat Commands v2.0
-r/pan (Reddit livestreaming) has been [shutdown](https://www.reddit.com/r/pan/comments/yl5zzd/update_on_the_future_of_live_video_broadcasting/). This project no longer works and will not be recieving any more updates.
+r/pan (Reddit livestreaming) has been [shutdown](https://www.reddit.com/r/pan/comments/yl5zzd/update_on_the_future_of_live_video_broadcasting/). This project no longer works and will not be receiving any new updates.
 
 ## What is this?
 This is an RPAN Studio python script that adds a ton of features r/pan streamers can use to interact with their chat
